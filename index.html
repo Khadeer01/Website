@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SLIRES</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-green: #007847;
+        --primary-blue: #1ebbf0;
+        --white: #ffffff;
+        --light-gray: #f5f5f5;
+        --dark-gray: #333333;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-gray);
+        background-color: var(--white);
+      }
+
+      /* Header Styles */
+      .hero {
+        background: linear-gradient(
+          40deg,
+          hsl(152deg 93% 42%) 0%,
+          hsl(142deg 61% 61%) 9%,
+          hsl(139deg 60% 72%) 18%,
+          hsl(136deg 58% 82%) 27%,
+          hsl(135deg 55% 90%) 37%,
+          hsl(0deg 0% 99%) 47%,
+          hsl(190deg 86% 93%) 58%,
+          hsl(189deg 95% 87%) 68%,
+          hsl(189deg 98% 80%) 79%,
+          hsl(188deg 99% 71%) 89%,
+          hsl(186deg 100% 50%) 100%
+        );
+        background-size: cover;
+        background-position: center;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        padding: 4rem 2rem;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background: url("https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg")
+          center/cover;
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content {
+        text-align: left;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 8px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero .mission {
+        position: relative;
+        padding: 2rem;
+        font-style: italic;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        text-align: left;
+        border-left: 4px solid var(--primary-green);
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 0 8px 8px 0;
+      }
+
+      .hero .mission-attribution {
+        display: block;
+        margin-top: 1.5rem;
+        font-style: normal;
+        font-size: 1rem;
+        color: var(--primary-blue);
+        text-align: right;
+      }
+
+      /* Navigation Styles */
+      .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 1rem 2rem;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .navbar.scrolled {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        border-bottom-color: transparent;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled .nav-container {
+        padding: 0.5rem 2rem;
+      }
+
+      .navbar-left {
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .navbar.scrolled .navbar-left {
+        transform: translateX(0);
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo {
+        color: var(--dark-gray);
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .navbar-right {
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .navbar.scrolled .navbar-right {
+        transform: translateX(0);
+      }
+
+      .mobile-menu {
+        display: none;
+        font-size: 1.5rem;
+        color: black;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--dark-gray);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-blue);
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-green);
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        background: linear-gradient(45deg, #ff4d4d, #ff0000, #cc0000, #ff4d4d)
+          border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Enhanced glow effect on hover */
+      .card:hover {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.2);
+      }
+
+      /* Mission Section Styles */
+      .highlight {
+        background: linear-gradient(
+          135deg,
+          var(--primary-green),
+          var(--primary-blue)
+        );
+        color: var(--white);
+        padding: 3rem 2rem;
+        margin: 2rem 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .highlight::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg")
+          center/cover;
+        opacity: 0.1;
+        z-index: 1;
+      }
+
+      .highlight .section {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .highlight .section-title {
+        color: var(--white);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        position: relative;
+        display: inline-block;
+      }
+
+      .highlight .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--white);
+        border-radius: 2px;
+      }
+
+      .highlight p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        font-weight: 300;
+      }
+
+      /* Contact Form Styles */
+      .contact-form {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.3rem;
+        color: var(--dark-gray);
+        font-size: 0.9rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.95rem;
+      }
+
+      .form-group textarea {
+        rows: 4;
+        min-height: 100px;
+      }
+
+      /* Contact section specific */
+      #contact {
+        padding: 3rem 2rem;
+      }
+
+      #contact .section-title {
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        #contact {
+          padding: 2rem 1rem;
+        }
+
+        .highlight {
+          padding: 2.5rem 1.5rem;
+          margin: 1.5rem 0;
+        }
+
+        .highlight .section-title {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        .highlight p {
+          font-size: 1.1rem;
+        }
+
+        .hero::after {
+          width: 100%;
+          clip-path: none;
+          opacity: 0.3;
+        }
+
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .hero-content {
+          text-align: center;
+          background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero .mission {
+          padding: 2rem;
+        }
+
+        .hero .mission-attribution {
+          margin-top: 1.2rem;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-green);
+        color: var(--white);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        font-size: 0.9rem;
+        line-height: 1.2;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-blue);
+      }
+
+      /* Add specific styling for document buttons */
+      .btn .material-icons {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 4px;
+      }
+
+      /* Update the card button container */
+      .card .btn {
+        margin-top: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: var(--primary-green);
+        color: var(--white);
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .social-links a {
+        color: var(--white);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary-blue);
+      }
+
+      /* Responsive Design */
+      /* For laptops and smaller monitors (up to 1366px) */
+      @media (max-width: 1366px) {
+        .section {
+          padding: 4rem 2rem;
+          max-width: 1100px;
+        }
+
+        .card-container {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+      }
+
+      /* For phones (up to 425px) */
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 0.8rem 1rem;
+        }
+
+        .logo {
+          font-size: 1.4rem;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: var(--primary-blue);
+          padding: 1rem;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .hero {
+          height: 70vh;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+          padding: 0 1rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+          padding: 0 1rem;
+        }
+
+        .section {
+          padding: 2rem 1rem;
+        }
+
+        .card-container {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .material-icons {
+          font-size: 1.8rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+          font-size: 16px; /* Prevents zoom on mobile */
+        }
+
+        footer {
+          padding: 2rem 1rem;
+        }
+
+        .slogan {
+          font-size: 1.4rem;
+          margin: 0.5rem 0 1.5rem 0;
+          letter-spacing: 0.5px;
+        }
+
+        .site-logo {
+          height: 45px;
+          margin-right: 0.8rem;
+        }
+
+        .navbar.scrolled .navbar-left {
+          transform: translateX(0);
+        }
+
+        .navbar.scrolled .navbar-right {
+          transform: translateX(0);
+        }
+      }
+
+      /* Fix for very small screens */
+      @media (max-width: 320px) {
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .card {
+          padding: 1rem;
+        }
+      }
+
+      /* Fix for landscape orientation on mobile */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero {
+          height: 100vh;
+          padding: 2rem 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* Ensure proper display on high-DPI screens */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .hero {
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80");
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        .navbar,
+        .hero,
+        .btn,
+        .contact-form,
+        footer {
+          display: none;
+        }
+
+        .section {
+          padding: 1rem;
+          margin: 0;
+        }
+
+        .card {
+          break-inside: avoid;
+          box-shadow: none;
+          border: 1px solid #ddd;
+        }
+      }
+
+      /* Add Material Icons styling */
+      .material-icons {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      /* Update slogan styling */
+      .slogan {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--primary-blue);
+        margin: 0.5rem 0 2rem 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1px;
+        line-height: 1.3;
+      }
+
+      /* Add logo styling */
+      .site-logo {
+        height: 60px;
+        width: auto;
+        margin-right: 1.2rem;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="navbar-left">
+          <div class="logo-container">
+            <img src="logo2.png" alt="SLIRES Logo" class="site-logo" />
+            <a href="#" class="logo">SLIRES</a>
+          </div>
+        </div>
+        <div class="navbar-right">
+          <div class="mobile-menu">
+            <i class="material-icons">menu</i>
+          </div>
+          <div class="nav-links">
+            <a href="#hero">Mission</a>
+            <a href="#about">About</a>
+            <a href="#support">Get Involved</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="hero" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>SLIRES</h1>
+          <p class="slogan">Uniting Minds. Rebuilding a nation.</p>
+          <a href="#support" class="btn">Get Involved</a>
+        </div>
+        <div class="mission">
+          "To promote social justice, ensure representation, and foster
+          development through advocacy, education, and community engagement. We
+          believe in the power of unity and collective action to create lasting
+          change in Sierra Leone."
+          <span class="mission-attribution">- Our Mission</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title">About Us</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Our Story</h3>
+          <p>
+            We are a grassroots movement dedicated to amplifying the voices of
+            underrepresented communities in Sierra Leone. Our journey began with
+            a simple belief: every voice matters.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>
+            We envision a Sierra Leone where every citizen has equal
+            opportunities to be heard, represented, and empowered to create
+            positive change in their communities.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Our Impact</h3>
+          <p>
+            Through our various initiatives, we've helped countless individuals
+            find their voice and make meaningful contributions to society.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section">
+      <h2 class="section-title">Get Involved</h2>
+      <div class="card-container">
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary-green)"
+            >agriculture</span
+          >
+          <h3>Agriculture</h3>
+          <p>
+            Access resources and documents related to agricultural development
+            and farming initiatives.
+          </p>
+          <a
+            href="https://docs.google.com/document/d/your-doc-id-here"
+            class="btn"
+            target="_blank"
+          >
+            <span class="material-icons">description</span>View Document
+          </a>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary-blue)"
+            >engineering</span
+          >
+          <h3>Civil Engineering</h3>
+          <p>
+            Find information about infrastructure development and engineering
+            projects.
+          </p>
+          <a
+            href="https://docs.google.com/document/d/your-doc-id-here"
+            class="btn"
+            target="_blank"
+          >
+            <span class="material-icons">description</span>View Document
+          </a>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary-green)"
+            >school</span
+          >
+          <h3>Education</h3>
+          <p>Access educational resources and learning materials.</p>
+          <a
+            href="https://docs.google.com/document/d/your-doc-id-here"
+            class="btn"
+            target="_blank"
+          >
+            <span class="material-icons">description</span>View Document
+          </a>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary-blue)"
+            >local_hospital</span
+          >
+          <h3>Healthcare</h3>
+          <p>Find healthcare resources and medical information.</p>
+          <a
+            href="https://docs.google.com/document/d/your-doc-id-here"
+            class="btn"
+            target="_blank"
+          >
+            <span class="material-icons">description</span>View Document
+          </a>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary-green)"
+            >science</span
+          >
+          <h3>Research & Development</h3>
+          <p>
+            Explore research initiatives and development projects in Sierra
+            Leone.
+          </p>
+          <a
+            href="https://docs.google.com/document/d/your-doc-id-here"
+            class="btn"
+            target="_blank"
+          >
+            <span class="material-icons">description</span>View Document
+          </a>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary-blue)"
+            >groups</span
+          >
+          <h3>Community Development</h3>
+          <p>
+            Learn about community initiatives and local development programs.
+          </p>
+          <a
+            href="https://docs.google.com/document/d/your-doc-id-here"
+            class="btn"
+            target="_blank"
+          >
+            <span class="material-icons">description</span>View Document
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="social-links">
+        <a href="#"><span class="material-icons">facebook</span></a>
+        <a href="#"><span class="material-icons">twitter</span></a>
+        <a href="#"><span class="material-icons">mail</span></a>
+        <a href="#"><span class="material-icons">link</span></a>
+      </div>
+      <p>
+        Email:
+        <a href="mailto:shaikhadeer440@gmail.com" style="color: var(--white)"
+          >shaikhadeer440@gmail.com</a
+        >
+      </p>
+      <p style="margin-top: 1rem">&copy; 2024 SLIRES. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Add scrolled class to navbar on scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          // Add scrolled class after scrolling 50px down
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          const navbarHeight = document.querySelector(".navbar").offsetHeight; // Get navbar height
+
+          if (target) {
+            const targetPosition =
+              target.getBoundingClientRect().top + window.pageYOffset; // Get target position from top of document
+            const offsetPosition = targetPosition - navbarHeight; // Subtract navbar height
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
