@@ -135,7 +135,7 @@
       }
 
       .navbar.scrolled {
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0.95);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
         border-bottom-color: transparent;
@@ -186,11 +186,13 @@
         transform: translateX(0);
       }
 
+      /* Mobile menu button styles */
       .mobile-menu {
-        display: none;
+        display: none; /* Hidden by default on all screens */
         font-size: 1.5rem;
         color: black;
         cursor: pointer;
+        transition: all 0.3s ease;
       }
 
       .nav-links {
@@ -484,6 +486,48 @@
         display: inline-block;
       }
 
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-green);
+        color: var(--white);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .scroll-to-top.visible {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      .scroll-to-top:hover {
+        background-color: var(--primary-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       /* Responsive Design */
       /* For large screens (above 1366px) */
       @media (min-width: 1367px) {
@@ -562,20 +606,35 @@
         }
 
         .nav-links {
-          display: none;
-          position: fixed;
-          top: 70px; /* Adjust based on navbar height */
+          display: none; /* Hide regular nav links on mobile */
+          position: absolute;
+          top: 100%;
           left: 0;
           width: 100%;
-          height: calc(100vh - 70px);
-          background: rgba(30, 187, 240, 0.98);
-          padding: 2rem 0;
+          background: rgba(0, 0, 0, 0.95);
+          padding: 0.5rem 0;
           flex-direction: column;
           align-items: center;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          gap: 1.5rem;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          gap: 0.5rem;
           z-index: 1000;
-          transition: transform 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+          border-radius: 0 0 12px 12px;
+        }
+
+        .mobile-menu {
+          display: block; /* Show only on mobile */
+          z-index: 1001;
+        }
+
+        .mobile-menu.visible {
+          display: block;
+          animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Hide mobile menu when scrolled */
+        .navbar.scrolled .mobile-menu {
+          display: none !important;
         }
 
         .nav-links.active {
@@ -583,33 +642,25 @@
           animation: slideDown 0.3s ease-in-out;
         }
 
-        @keyframes slideDown {
-          from {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-
         .nav-links a {
           color: var(--white);
           font-size: 1.2rem;
-          padding: 0.5rem 1rem;
-          width: 100%;
+          padding: 0.8rem 2rem;
+          width: 90%;
+          max-width: 300px;
           text-align: center;
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          margin: 0.2rem 0;
         }
 
         .nav-links a:hover {
           background: rgba(255, 255, 255, 0.1);
-          border-radius: 5px;
+          transform: translateY(-2px);
         }
 
-        .mobile-menu {
-          display: block;
-          z-index: 1001;
+        .nav-links a:last-child {
+          margin-bottom: 0.5rem;
         }
 
         .hero {
@@ -704,6 +755,14 @@
         .social-links a {
           font-size: 1.8rem;
         }
+
+        /* Adjust scroll-to-top button for mobile */
+        .scroll-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
       }
 
       /* For mobile phones (up to 480px) */
@@ -793,6 +852,18 @@
 
         .social-links a {
           font-size: 1.6rem;
+        }
+
+        /* Adjust scroll-to-top button for mobile */
+        .scroll-to-top {
+          bottom: 15px;
+          right: 15px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .scroll-to-top .material-icons {
+          font-size: 1.5rem;
         }
       }
 
@@ -892,9 +963,25 @@
           border: 1px solid #ddd;
         }
       }
+
+      /* Desktop styles - ensure mobile menu is hidden */
+      @media (min-width: 769px) {
+        .mobile-menu {
+          display: none !important; /* Force hide on desktop */
+        }
+
+        .nav-links {
+          display: flex !important; /* Force show regular nav on desktop */
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- Add scroll to top button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+      <span class="material-icons">arrow_upward</span>
+    </button>
+
     <nav class="navbar">
       <div class="nav-container">
         <div class="navbar-left">
@@ -1122,6 +1209,48 @@
             navLinks.classList.remove("active");
           }
         });
+      });
+
+      // Add scroll to top functionality
+      const scrollToTopButton = document.querySelector(".scroll-to-top");
+
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const scrollToTopButton = document.querySelector(".scroll-to-top");
+
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          scrollToTopButton.classList.add("visible");
+          mobileMenu.classList.remove("visible");
+        } else {
+          navbar.classList.remove("scrolled");
+          scrollToTopButton.classList.remove("visible");
+          mobileMenu.classList.add("visible");
+        }
+      });
+
+      scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Close mobile menu when scrolling
+      window.addEventListener("scroll", () => {
+        const navLinks = document.querySelector(".nav-links");
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+        }
+      });
+
+      // Show mobile menu initially if at top
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenu = document.querySelector(".mobile-menu");
+        if (window.scrollY <= 50) {
+          mobileMenu.classList.add("visible");
+        }
       });
     </script>
   </body>
