@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SLIRES</title>
+    <meta
+      name="description"
+      content="SLIRES - Uniting Minds, Rebuilding a Nation. A grassroots movement dedicated to amplifying voices and creating positive change across Sierra Leone through collaborative action and community empowerment."
+    />
+    <meta
+      name="keywords"
+      content="SLIRES, Sierra Leone, community development, social justice, advocacy, education, agriculture, healthcare, civil engineering, research, community engagement"
+    />
+    <meta name="author" content="SLIRES" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta
+      property="og:title"
+      content="SLIRES - Uniting Minds, Rebuilding a Nation"
+    />
+    <meta
+      property="og:description"
+      content="A grassroots movement dedicated to amplifying voices and creating positive change across Sierra Leone through collaborative action and community empowerment."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://slires.org" />
+    <meta property="og:image" content="https://slires.org/Header.jpg" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SLIRES - Uniting Minds, Rebuilding a Nation"
+    />
+    <meta
+      name="twitter:description"
+      content="A grassroots movement dedicated to amplifying voices and creating positive change across Sierra Leone through collaborative action and community empowerment."
+    />
+    <meta name="twitter:image" content="https://slires.org/Header.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://slires.org" />
+
+    <title>SLIRES - Uniting Minds, Rebuilding a Nation | Sierra Leone</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -71,9 +110,20 @@
         font-family: "Montserrat", "Open Sans", sans-serif;
         font-weight: 700;
         text-align: center;
-        margin-bottom: 3rem;
-        color: var(--primary-green);
-        text-shadow: 0 0 5px rgba(0, 120, 71, 0.4);
+        margin-bottom: 2.5rem;
+        margin-top: -1rem;
+        color: var(--dark-gray);
+        font-size: 2.8rem;
+        text-shadow: none;
+      }
+
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 4rem auto;
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: var(--dark-gray);
       }
 
       .logo {
@@ -87,40 +137,45 @@
       /* Header Styles */
       .hero {
         background: linear-gradient(
-          40deg,
-          hsl(152deg 93% 42%) 0%,
-          hsl(142deg 61% 61%) 9%,
-          hsl(139deg 60% 72%) 18%,
-          hsl(136deg 58% 82%) 27%,
-          hsl(135deg 55% 90%) 37%,
-          hsl(0deg 0% 99%) 47%,
-          hsl(190deg 86% 93%) 58%,
-          hsl(189deg 95% 87%) 68%,
-          hsl(189deg 98% 80%) 79%,
-          hsl(188deg 99% 71%) 89%,
-          hsl(186deg 100% 50%) 100%
+          to right,
+          var(--primary-green),
+          var(--primary-blue)
         );
-        background-size: cover;
-        background-position: center;
-        min-height: 50vh; /* Keep the reduced vertical height */
+        min-height: 40vh;
         display: flex;
         align-items: center;
         color: var(--white);
         padding: 4rem 2rem;
         position: relative;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("Header.jpg") center/cover;
+        opacity: 0.7;
+        z-index: 1;
       }
 
       .hero::after {
         content: "";
         position: absolute;
         top: 0;
+        left: 0;
         right: 0;
-        width: 60%;
-        height: 100%;
-        background: url("Header.jpg") center/cover; /* Header.jpg on pseudo-element with cover */
-        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        opacity: 0.8;
-        z-index: 1;
+        bottom: 0;
+        background: linear-gradient(
+          to right,
+          rgba(0, 120, 71, 0.7),
+          rgba(30, 187, 240, 0.7)
+        );
+        z-index: 2;
       }
 
       .hero-container {
@@ -132,41 +187,122 @@
         gap: 3rem;
         align-items: center;
         position: relative;
-        z-index: 2;
+        z-index: 3;
       }
 
       .hero-content {
         text-align: left;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 2rem;
-        border-radius: 8px;
       }
 
-      .hero p {
-        font-size: 1.3rem;
-        margin-bottom: 1.5rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero .slogan {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--white);
+        margin: 0.5rem 0 2rem 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        letter-spacing: 1px;
+        line-height: 1.3;
       }
 
       .hero .mission {
         position: relative;
         padding: 2rem;
         font-style: italic;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         line-height: 1.6;
         text-align: left;
         border-left: 4px solid var(--primary-green);
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 0 8px 8px 0;
+        color: var(--white);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        font-weight: 600;
       }
 
       .hero .mission-attribution {
-        display: block;
-        margin-top: 1.5rem;
-        font-style: normal;
-        font-size: 1rem;
+        display: inline;
+        margin-left: 0.5rem;
+        font-style: italic;
+        font-size: 1.4rem;
+        color: var(--white);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        font-weight: 600;
+      }
+
+      .hero .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--white);
+        color: var(--dark-gray);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        margin-top: 1rem;
+      }
+
+      .hero .btn:hover {
+        background-color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         color: var(--primary-blue);
-        text-align: right;
+      }
+
+      /* Update responsive styles */
+      @media (max-width: 768px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .hero .mission {
+          padding: 1.5rem;
+          font-size: 1.3rem;
+          border-left: none;
+          text-align: center;
+        }
+
+        .hero .mission-attribution {
+          font-size: 1rem;
+          text-align: center;
+        }
+
+        .hero .btn {
+          padding: 0.9rem 1.8rem;
+          font-size: 1rem;
+          margin: 1rem auto;
+          display: inline-block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero .mission {
+          padding: 1.2rem;
+          font-size: 1.2rem;
+        }
+
+        .hero .mission-attribution {
+          font-size: 0.95rem;
+        }
+
+        .hero .btn {
+          padding: 0.8rem 1.6rem;
+          font-size: 0.95rem;
+        }
       }
 
       /* Navigation Styles */
@@ -174,18 +310,21 @@
         position: sticky;
         top: 0;
         width: 100%;
-        background-color: var(--white);
+        background: linear-gradient(
+          to right,
+          var(--primary-green),
+          var(--primary-blue)
+        );
         padding: 1rem 2rem;
         z-index: 1000;
         transition: all 0.3s ease;
-        border-bottom: 1px solid var(--light-gray);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .navbar.scrolled {
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: var(--white);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        border-bottom-color: transparent;
+        border-bottom: 1px solid var(--light-gray);
       }
 
       .nav-container {
@@ -216,6 +355,18 @@
         align-items: center;
       }
 
+      .logo {
+        color: var(--white);
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .navbar.scrolled .logo {
+        color: var(--dark-gray);
+      }
+
       .navbar-right {
         display: flex;
         align-items: center;
@@ -226,13 +377,16 @@
         transform: translateX(0);
       }
 
-      /* Mobile menu button styles */
       .mobile-menu {
-        display: none; /* Hidden by default on all screens */
+        display: none;
         font-size: 1.5rem;
-        color: black;
+        color: var(--white);
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: color 0.3s ease;
+      }
+
+      .navbar.scrolled .mobile-menu {
+        color: var(--dark-gray);
       }
 
       .nav-links {
@@ -241,13 +395,21 @@
       }
 
       .nav-links a {
-        color: var(--dark-gray);
+        color: var(--white);
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
       }
 
+      .navbar.scrolled .nav-links a {
+        color: var(--dark-gray);
+      }
+
       .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .navbar.scrolled .nav-links a:hover {
         color: var(--primary-blue);
       }
 
@@ -256,40 +418,83 @@
         padding: 5rem 2rem;
         max-width: 1200px;
         margin: 0 auto;
+        width: 100%;
       }
 
-      /* Alternate section background */
-      .section.alt {
+      .section .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Full width background section */
+      .full-width-section {
+        width: 100%;
         background-color: var(--light-gray);
-        border-radius: 10px;
-        margin-top: 4rem;
+        padding: 7rem 0;
+        margin-top: 0;
+      }
+
+      .full-width-section .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
       }
 
       /* Style for Get Involved section */
       #support {
-        background-color: var(--light-gray); /* Changed to light gray */
+        width: 100%;
         margin-top: 4rem;
-        margin-bottom: 4rem;
-        padding: 5rem 2rem; /* Adjusted padding to 5rem */
-        border-radius: 10px;
+        margin-bottom: 0;
+        padding: 5rem 0 0 0;
+      }
+
+      #support .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
       }
 
       .card-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         margin-top: 2rem;
+        margin-bottom: 4rem;
       }
 
       .card {
         background: var(--white);
         border-radius: 10px;
-        padding: 2rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Softer shadow */
+        padding: 2.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        border: 1px solid transparent; /* Add a subtle border */
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 280px;
+      }
+
+      .card .material-icons {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+        color: var(--primary-green);
+        display: block;
+      }
+
+      .card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: var(--dark-gray);
+      }
+
+      .card p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--dark-gray);
       }
 
       .card::before {
@@ -299,17 +504,17 @@
         left: 0;
         right: 0;
         bottom: 0;
-        border: 2px solid var(--primary-blue); /* Use primary blue border on hover area */
+        border: 2px solid var(--primary-blue);
         border-radius: 10px;
         opacity: 0;
         transition: opacity 0.3s ease;
-        pointer-events: none; /* Ensure clicks go through */
+        pointer-events: none;
       }
 
       .card:hover {
         transform: translateY(-5px);
-        border-color: var(--primary-blue); /* Highlight border on hover */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+        border-color: var(--primary-blue);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
 
       .card:hover::before {
@@ -350,17 +555,15 @@
       }
 
       .highlight .section {
-        /* Using .section within .highlight */
         position: relative;
         z-index: 2;
         max-width: 900px;
         margin: 0 auto;
         text-align: center;
-        padding: 0; /* Remove padding from inner section */
+        padding: 0;
       }
 
       .highlight .section-title {
-        /* Using .section-title within .highlight */
         color: var(--white);
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
@@ -515,15 +718,15 @@
         right: 30px;
         background-color: var(--primary-green);
         color: var(--white);
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         display: none;
         justify-content: center;
         align-items: center;
         cursor: pointer;
         z-index: 999;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
         border: none;
       }
@@ -535,14 +738,50 @@
 
       .scroll-to-top:not(.clicked):hover {
         background-color: var(--primary-blue);
-        transform: translateY(-3px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
       .scroll-to-top.clicked {
         background-color: var(--primary-green) !important;
         transform: translateY(0);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .scroll-to-top .material-icons {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .scroll-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .scroll-to-top .material-icons {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .scroll-to-top {
+          bottom: 15px;
+          right: 15px;
+          width: 35px;
+          height: 35px;
+        }
+
+        .scroll-to-top .material-icons {
+          font-size: 1.2rem;
+        }
+
+        .scroll-to-top:not(.clicked):hover {
+          transform: translateY(-1px);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
       }
 
       @keyframes fadeIn {
@@ -556,16 +795,20 @@
         }
       }
 
-      /* Responsive Design */
+      /* Responsive Design for Hero Section */
       /* For large screens (above 1366px) */
       @media (min-width: 1367px) {
-        .section {
-          padding: 6rem 2rem;
-          max-width: 1300px;
+        .hero {
+          min-height: 45vh;
+          padding: 5rem 2rem;
         }
 
         .hero h1 {
-          font-size: 3.5rem;
+          font-size: 4rem;
+        }
+
+        .hero .slogan {
+          font-size: 2rem;
         }
 
         .hero p {
@@ -575,18 +818,17 @@
 
       /* For laptops and smaller monitors (up to 1366px) */
       @media (max-width: 1366px) {
-        .section {
+        .hero {
+          min-height: 40vh;
           padding: 4rem 2rem;
-          max-width: 1100px;
-        }
-
-        .card-container {
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
         }
 
         .hero h1 {
-          font-size: 2.8rem;
+          font-size: 3.5rem;
+        }
+
+        .hero .slogan {
+          font-size: 1.8rem;
         }
 
         .hero p {
@@ -596,30 +838,33 @@
 
       /* For tablets (up to 1024px) */
       @media (max-width: 1024px) {
-        .section {
+        .hero {
+          min-height: 35vh;
           padding: 3.5rem 1.5rem;
-          max-width: 900px;
-        }
-
-        .hero-container {
-          gap: 2rem;
         }
 
         .hero h1 {
-          font-size: 2.5rem;
+          font-size: 3rem;
+        }
+
+        .hero .slogan {
+          font-size: 1.6rem;
         }
 
         .hero p {
           font-size: 1.1rem;
         }
 
-        .card-container {
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1.25rem;
+        .hero::before {
+          opacity: 0.65;
         }
 
-        .highlight .section-title {
-          font-size: 2.2rem;
+        .hero::after {
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.75),
+            rgba(30, 187, 240, 0.75)
+          );
         }
       }
 
@@ -629,45 +874,52 @@
           padding: 0.8rem 1rem;
         }
 
-        .logo {
-          font-size: 1.4rem;
-        }
-
         .nav-links {
-          display: none; /* Hide regular nav links on mobile */
-          position: absolute;
-          top: 100%;
+          display: none;
+          position: fixed;
+          top: 70px;
           left: 0;
           width: 100%;
-          background: rgba(0, 0, 0, 0.95);
-          padding: 0.5rem 0;
+          background: linear-gradient(
+            to right,
+            var(--primary-green),
+            var(--primary-blue)
+          );
+          padding: 1rem 0;
           flex-direction: column;
           align-items: center;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-          gap: 0.5rem;
-          z-index: 1000;
+          gap: 1rem;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          z-index: 999;
           transition: all 0.3s ease-in-out;
-          border-radius: 0 0 12px 12px;
         }
 
-        .mobile-menu {
-          display: block; /* Show only on mobile */
-          z-index: 1001;
+        /* Hide mobile menu when navbar is scrolled */
+        .navbar.scrolled .nav-links {
+          display: none !important;
         }
 
-        .mobile-menu.visible {
-          display: block;
-          animation: fadeIn 0.3s ease-in-out;
-        }
-
-        /* Hide mobile menu when scrolled */
-        .navbar.scrolled .mobile-menu {
+        .navbar.scrolled .nav-links.active {
           display: none !important;
         }
 
         .nav-links.active {
           display: flex;
           animation: slideDown 0.3s ease-in-out;
+        }
+
+        .mobile-menu {
+          display: block;
+          font-size: 1.8rem;
+          color: var(--white);
+          cursor: pointer;
+          transition: color 0.3s ease;
+          z-index: 1000;
+        }
+
+        /* Hide mobile menu button when scrolled */
+        .navbar.scrolled .mobile-menu {
+          display: none !important;
         }
 
         .nav-links a {
@@ -687,286 +939,150 @@
           transform: translateY(-2px);
         }
 
-        .nav-links a:last-child {
-          margin-bottom: 0.5rem;
-        }
-
         .hero {
           min-height: 40vh;
           padding: 3rem 1rem;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url("Header.jpg") center/cover;
+          opacity: 0.6;
+          z-index: 1;
+        }
+
+        .hero::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.8),
+            rgba(30, 187, 240, 0.8)
+          );
+          z-index: 2;
         }
 
         .hero-container {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          text-align: center;
+          position: relative;
+          z-index: 3;
+          width: 100%;
+          padding: 0 1rem;
         }
 
         .hero-content {
-          background: rgba(0, 0, 0, 0.7);
-          padding: 2rem;
-          border-radius: 12px;
-          max-width: 600px;
-          margin: 0 auto;
+          max-width: 100%;
         }
 
         .hero h1 {
-          font-size: 2.2rem;
-          margin-bottom: 1rem;
+          font-size: 2.5rem;
+          margin-bottom: 0.8rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .slogan {
+          font-size: 1.4rem;
+          margin: 0.4rem 0 1.5rem 0;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
           font-size: 1.1rem;
           margin-bottom: 1.5rem;
-        }
-
-        .hero .mission {
-          padding: 1.5rem;
-          font-size: 1.1rem;
-          border-left: none;
-          border-radius: 12px;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-
-        .section {
-          padding: 3rem 1rem;
-        }
-
-        .card-container {
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
-          padding: 0 1rem;
-        }
-
-        .card {
-          padding: 1.75rem;
-        }
-
-        .btn {
-          width: 100%;
-          max-width: 300px;
-          margin: 0.75rem auto;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0.75rem 1.5rem;
-        }
-
-        .material-icons {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-
-        .highlight {
-          padding: 2.5rem 1rem;
-          margin: 2rem 0;
-        }
-
-        .highlight .section-title {
-          font-size: 2rem;
-        }
-
-        .highlight p {
-          font-size: 1.1rem;
-          padding: 0 1rem;
-        }
-
-        footer {
-          padding: 2.5rem 1rem;
-        }
-
-        .social-links {
-          gap: 2rem;
-        }
-
-        .social-links a {
-          font-size: 1.8rem;
-        }
-
-        /* Adjust scroll-to-top button for mobile */
-        .scroll-to-top {
-          bottom: 20px;
-          right: 20px;
-          width: 45px;
-          height: 45px;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
       }
 
       /* For mobile phones (up to 480px) */
       @media (max-width: 480px) {
-        .navbar {
-          padding: 0.6rem 0.8rem;
-        }
-
-        .site-logo {
-          height: 40px;
-        }
-
-        .logo {
-          font-size: 1.2rem;
-        }
-
         .hero {
-          min-height: 90vh;
-          padding: 2rem 0.8rem;
+          min-height: 45vh;
+          padding: 2.5rem 1rem;
         }
 
-        .hero-content {
-          padding: 1.5rem;
+        .hero::before {
+          opacity: 0.5;
+        }
+
+        .hero::after {
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.85),
+            rgba(30, 187, 240, 0.85)
+          );
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero .slogan {
+          font-size: 1.2rem;
+          margin: 0.3rem 0 1.2rem 0;
+        }
+
+        .hero p {
+          font-size: 1rem;
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      /* For very small screens */
+      @media (max-width: 320px) {
+        .hero {
+          min-height: 40vh;
+          padding: 2rem 0.8rem;
         }
 
         .hero h1 {
           font-size: 2rem;
         }
 
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .hero .mission {
-          padding: 1.25rem;
-          font-size: 1rem;
-        }
-
-        .section {
-          padding: 2rem 0.8rem;
-        }
-
-        .section-title {
-          font-size: 1.8rem;
-          margin-bottom: 2rem;
-        }
-
-        .card-container {
-          grid-template-columns: 1fr;
-          gap: 1.25rem;
-          padding: 0;
-        }
-
-        .card {
-          padding: 1.5rem;
-        }
-
-        .btn {
-          padding: 0.6rem 1.2rem;
-          font-size: 0.9rem;
-        }
-
-        .material-icons {
-          font-size: 1.8rem;
-        }
-
-        .highlight {
-          padding: 2rem 0.8rem;
-        }
-
-        .highlight .section-title {
-          font-size: 1.8rem;
-        }
-
-        .highlight p {
-          font-size: 1rem;
-          padding: 0;
-        }
-
-        footer {
-          padding: 2rem 0.8rem;
-        }
-
-        .social-links {
-          gap: 1.5rem;
-        }
-
-        .social-links a {
-          font-size: 1.6rem;
-        }
-
-        /* Adjust scroll-to-top button for mobile */
-        .scroll-to-top {
-          bottom: 15px;
-          right: 15px;
-          width: 40px;
-          height: 40px;
-        }
-
-        .scroll-to-top .material-icons {
-          font-size: 1.5rem;
-        }
-      }
-
-      /* Fix for very small screens (e.g., iPhone 5/SE) */
-      @media (max-width: 320px) {
-        .hero h1 {
-          font-size: 1.8rem;
+        .hero .slogan {
+          font-size: 1.1rem;
+          margin: 0.3rem 0 1rem 0;
         }
 
         .hero p {
           font-size: 0.95rem;
-        }
-
-        .card {
-          padding: 1.25rem;
-        }
-
-        .section-title {
-          font-size: 1.6rem;
-        }
-
-        .btn {
-          padding: 0.5rem 1rem;
-          font-size: 0.85rem;
+          margin-bottom: 1rem;
         }
       }
 
       /* Fix for landscape orientation on mobile */
       @media (max-height: 500px) and (orientation: landscape) {
         .hero {
-          min-height: 80vh;
+          min-height: 100vh;
           padding: 2rem 1rem;
         }
 
-        .hero-container {
-          grid-template-columns: 1fr 1fr;
-          gap: 1.5rem;
+        .hero::before {
+          opacity: 0.7;
         }
 
-        .hero-content {
-          padding: 1.5rem;
-        }
-
-        .hero h1 {
-          font-size: 1.8rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-          margin-bottom: 0.75rem;
-        }
-
-        .hero .mission {
-          padding: 1.25rem;
-          font-size: 0.95rem;
-        }
-
-        .nav-links {
-          top: 60px;
-          height: calc(100vh - 60px);
-          padding: 1rem 0;
-          gap: 0.75rem;
-        }
-
-        .nav-links a {
-          font-size: 1rem;
-          padding: 0.4rem 0.8rem;
+        .hero::after {
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.7),
+            rgba(30, 187, 240, 0.7)
+          );
         }
       }
 
       /* Ensure proper display on high-DPI screens */
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        .hero::after {
-          background-image: url("Header.jpg"); /* Header.jpg on pseudo-element for high-DPI */
+        .hero::before {
+          background-image: url("Header.jpg");
         }
       }
 
@@ -1000,6 +1116,207 @@
 
         .nav-links {
           display: flex !important; /* Force show regular nav on desktop */
+        }
+      }
+
+      /* Update responsive styles for the section */
+      @media (max-width: 768px) {
+        .section {
+          padding: 5rem 0;
+        }
+
+        .section-title {
+          font-size: 2.4rem;
+          margin-bottom: 2rem;
+          margin-top: -0.5rem;
+        }
+
+        .section-intro {
+          font-size: 1.2rem;
+          margin-bottom: 3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section {
+          padding: 4rem 0;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .section-intro {
+          font-size: 1.1rem;
+          margin-bottom: 2.5rem;
+        }
+      }
+
+      /* Add new styles for the CTA section */
+      .cta-section {
+        text-align: center;
+        width: 100vw;
+        margin: 0;
+        padding: 4rem 0;
+        background: linear-gradient(
+          to left,
+          rgba(0, 120, 71, 0.85),
+          rgba(30, 187, 240, 0.85)
+        );
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        margin-top: 2rem;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-title {
+        font-size: 2.2rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--white);
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 2;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 2;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--white);
+        color: var(--dark-gray);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        background-color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        color: var(--primary-blue);
+      }
+
+      @media (max-width: 768px) {
+        .cta-section {
+          padding: 3rem 0;
+          background: linear-gradient(
+            to left,
+            rgba(0, 120, 71, 0.8),
+            rgba(30, 187, 240, 0.8)
+          );
+        }
+
+        .cta-content {
+          padding: 0 1.5rem;
+        }
+
+        .cta-title {
+          font-size: 1.8rem;
+          margin-bottom: 1.2rem;
+        }
+
+        .cta-text {
+          font-size: 1.1rem;
+          margin-bottom: 1.8rem;
+        }
+
+        .cta-buttons {
+          gap: 1rem;
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          padding: 0.9rem 1.8rem;
+          font-size: 1rem;
+          min-width: 140px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cta-section {
+          padding: 2.5rem 0;
+          background: linear-gradient(
+            to left,
+            rgba(0, 120, 71, 0.75),
+            rgba(30, 187, 240, 0.75)
+          );
+        }
+
+        .cta-content {
+          padding: 0 1rem;
+        }
+
+        .cta-title {
+          font-size: 1.5rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .cta-text {
+          font-size: 0.95rem;
+          margin-bottom: 1.2rem;
+          line-height: 1.4;
+        }
+
+        .cta-buttons {
+          gap: 0.8rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          padding: 0.8rem 1.2rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Update card container responsive styles */
+      @media (max-width: 768px) {
+        .card-container {
+          margin-bottom: 3rem;
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card-container {
+          margin-bottom: 2.5rem;
+          gap: 1rem;
         }
       }
     </style>
@@ -1037,139 +1354,174 @@
       </div>
     </nav>
 
-    <section id="hero" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1>SLIRES</h1>
-          <p class="slogan">Uniting Minds. Rebuilding a nation.</p>
-          <a href="#support" class="btn">Get Involved</a>
+    <main>
+      <section id="hero" class="hero" aria-label="Hero section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1>SLIRES</h1>
+            <p class="slogan">Uniting Minds. Rebuilding a nation.</p>
+            <a href="#support" class="btn">Get Involved</a>
+          </div>
+          <div class="mission">
+            "To promote social justice, ensure representation, and foster
+            development through advocacy, education, and community engagement.
+            We believe in the power of unity and collective action to create
+            lasting change in Sierra Leone."
+            <span class="mission-attribution">- Our Mission</span>
+          </div>
         </div>
-        <div class="mission">
-          "To promote social justice, ensure representation, and foster
-          development through advocacy, education, and community engagement. We
-          believe in the power of unity and collective action to create lasting
-          change in Sierra Leone."
-          <span class="mission-attribution">- Our Mission</span>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="about" class="section alt">
-      <h2 class="section-title">About Us</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>Our Story</h3>
-          <p>
-            We are a grassroots movement dedicated to amplifying the voices of
-            underrepresented communities in Sierra Leone. Our journey began with
-            a simple belief: every voice matters.
+      <section id="about" class="full-width-section" aria-label="About SLIRES">
+        <div class="section-content">
+          <h2 class="section-title">About SLIRES</h2>
+          <p class="section-intro">
+            We are a grassroots movement dedicated to amplifying voices and
+            creating positive change across Sierra Leone through collaborative
+            action and community empowerment.
           </p>
+          <div class="card-container">
+            <div class="card">
+              <span class="material-icons">history</span>
+              <h3>Our Story</h3>
+              <p>
+                Born from a simple belief that every voice matters, we started
+                as a grassroots movement to amplify underrepresented communities
+                across Sierra Leone.
+              </p>
+            </div>
+            <div class="card">
+              <span class="material-icons">visibility</span>
+              <h3>Our Vision</h3>
+              <p>
+                A Sierra Leone where every citizen has equal opportunities to be
+                heard, represented, and empowered to create positive change in
+                their communities.
+              </p>
+            </div>
+            <div class="card">
+              <span class="material-icons">trending_up</span>
+              <h3>Our Impact</h3>
+              <p>
+                Through our various initiatives, we hope to help countless
+                individuals find their voice and make meaningful contributions
+                to society.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Our Vision</h3>
-          <p>
-            We envision a Sierra Leone where every citizen has equal
-            opportunities to be heard, represented, and empowered to create
-            positive change in their communities.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Our Impact</h3>
-          <p>
-            Through our various initiatives, we hope to help countless
-            individuals find their voice and make meaningful contributions to
-            society.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="support" class="section">
-      <h2 class="section-title">Get Involved</h2>
-      <div class="card-container">
-        <div class="card">
-          <span class="material-icons" style="color: var(--primary-green)"
-            >agriculture</span
-          >
-          <h3>Agriculture</h3>
-          <p>
-            Contribute your ideas and expertise to agricultural development
-            initiatives. Let's build together for a sustainable future.
+      <section id="support" class="section" aria-label="Get Involved">
+        <div class="section-content">
+          <h2 class="section-title">Get Involved</h2>
+          <p class="section-intro">
+            Join us in building a better Sierra Leone. Your expertise and
+            passion can make a real difference in these key areas of
+            development.
           </p>
-          <a href="#" class="btn" target="_blank">
-            <span class="material-icons">description</span>Contribute Ideas
-          </a>
-        </div>
-        <div class="card">
-          <span class="material-icons" style="color: var(--primary-blue)"
-            >engineering</span
-          >
-          <h3>Civil Engineering</h3>
-          <p>
-            Share your knowledge and ideas for infrastructure projects and civil
-            engineering advancements. Let's build together.
-          </p>
-          <a href="#" class="btn" target="_blank">
-            <span class="material-icons">description</span>Contribute Ideas
-          </a>
-        </div>
-        <div class="card">
-          <span class="material-icons" style="color: var(--primary-green)"
-            >school</span
-          >
-          <h3>Education</h3>
-          <p>
-            Offer your insights and ideas to enhance educational resources and
-            programs. Let's build together for a brighter future.
-          </p>
-          <a href="#" class="btn" target="_blank">
-            <span class="material-icons">description</span>Contribute Ideas
-          </a>
-        </div>
-        <div class="card">
-          <span class="material-icons" style="color: var(--primary-blue)"
-            >local_hospital</span
-          >
-          <h3>Healthcare</h3>
-          <p>
-            Share your ideas and contribute to improving healthcare resources
-            and medical initiatives. Let's build together for a healthier
-            nation.
-          </p>
-          <a href="#" class="btn" target="_blank">
-            <span class="material-icons">description</span>Contribute Ideas
-          </a>
-        </div>
-        <div class="card">
-          <span class="material-icons" style="color: var(--primary-green)"
-            >science</span
-          >
-          <h3>Research & Development</h3>
-          <p>
-            Contribute your research findings and development ideas to drive
-            progress in various sectors. Let's build together.
-          </p>
-          <a href="#" class="btn" target="_blank">
-            <span class="material-icons">description</span>Contribute Ideas
-          </a>
-        </div>
-        <div class="card">
-          <span class="material-icons" style="color: var(--primary-blue)"
-            >groups</span
-          >
-          <h3>Community Development</h3>
-          <p>
-            Share your ideas and get involved in local community development
-            programs. Let's build together for stronger communities.
-          </p>
-          <a href="#" class="btn" target="_blank">
-            <span class="material-icons">description</span>Contribute Ideas
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <footer>
+          <div class="card-container">
+            <div class="card">
+              <span class="material-icons" style="color: var(--primary-green)"
+                >agriculture</span
+              >
+              <h3>Agriculture</h3>
+              <p>
+                Contribute your ideas and expertise to agricultural development
+                initiatives. Let's build together for a sustainable future.
+              </p>
+              <a href="#" class="btn" target="_blank">
+                <span class="material-icons">description</span>Contribute Ideas
+              </a>
+            </div>
+            <div class="card">
+              <span class="material-icons" style="color: var(--primary-blue)"
+                >engineering</span
+              >
+              <h3>Civil Engineering</h3>
+              <p>
+                Share your knowledge and ideas for infrastructure projects and
+                civil engineering advancements. Let's build together.
+              </p>
+              <a href="#" class="btn" target="_blank">
+                <span class="material-icons">description</span>Contribute Ideas
+              </a>
+            </div>
+            <div class="card">
+              <span class="material-icons" style="color: var(--primary-green)"
+                >school</span
+              >
+              <h3>Education</h3>
+              <p>
+                Offer your insights and ideas to enhance educational resources
+                and programs. Let's build together for a brighter future.
+              </p>
+              <a href="#" class="btn" target="_blank">
+                <span class="material-icons">description</span>Contribute Ideas
+              </a>
+            </div>
+            <div class="card">
+              <span class="material-icons" style="color: var(--primary-blue)"
+                >local_hospital</span
+              >
+              <h3>Healthcare</h3>
+              <p>
+                Share your ideas and contribute to improving healthcare
+                resources and medical initiatives. Let's build together for a
+                healthier nation.
+              </p>
+              <a href="#" class="btn" target="_blank">
+                <span class="material-icons">description</span>Contribute Ideas
+              </a>
+            </div>
+            <div class="card">
+              <span class="material-icons" style="color: var(--primary-green)"
+                >science</span
+              >
+              <h3>Research & Development</h3>
+              <p>
+                Contribute your research findings and development ideas to drive
+                progress in various sectors. Let's build together.
+              </p>
+              <a href="#" class="btn" target="_blank">
+                <span class="material-icons">description</span>Contribute Ideas
+              </a>
+            </div>
+            <div class="card">
+              <span class="material-icons" style="color: var(--primary-blue)"
+                >groups</span
+              >
+              <h3>Community Development</h3>
+              <p>
+                Share your ideas and get involved in local community development
+                programs. Let's build together for stronger communities.
+              </p>
+              <a href="#" class="btn" target="_blank">
+                <span class="material-icons">description</span>Contribute Ideas
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section" aria-label="Call to Action">
+        <div class="cta-content">
+          <h3 class="cta-title">Ready to get involved?</h3>
+          <p class="cta-text">
+            Join thousands of Sierra Leoneans working together to build a
+            brighter future. Your voice and expertise can help shape positive
+            change in our communities.
+          </p>
+          <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            <a href="#support" class="btn btn-secondary">Get Involved</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
       <div class="social-links">
         <a href="#" aria-label="Instagram"
           ><img
