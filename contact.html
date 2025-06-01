@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | Voices of Sierra Leone</title>
+    <meta
+      name="description"
+      content="Contact SLIRES - Get in touch with our team to learn more about our initiatives, get involved, or support our mission to create positive change in Sierra Leone."
+    />
+    <meta
+      name="keywords"
+      content="contact SLIRES, Sierra Leone contact, get involved, community engagement, SLIRES contact form"
+    />
+    <meta name="author" content="SLIRES" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta
+      property="og:title"
+      content="Contact SLIRES - Get Involved in Sierra Leone's Development"
+    />
+    <meta
+      property="og:description"
+      content="Get in touch with SLIRES to learn more about our initiatives, get involved, or support our mission to create positive change in Sierra Leone."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://slires.org/contact" />
+    <meta property="og:image" content="https://slires.org/Header.jpg" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Contact SLIRES - Get Involved in Sierra Leone's Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Get in touch with SLIRES to learn more about our initiatives, get involved, or support our mission to create positive change in Sierra Leone."
+    />
+    <meta name="twitter:image" content="https://slires.org/Header.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://slires.org/contact" />
+
+    <title>Contact SLIRES - Get Involved in Sierra Leone's Development</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -82,18 +121,21 @@
         position: sticky;
         top: 0;
         width: 100%;
-        background-color: var(--white);
+        background: linear-gradient(
+          to right,
+          var(--primary-green),
+          var(--primary-blue)
+        );
         padding: 1rem 2rem;
         z-index: 1000;
         transition: all 0.3s ease;
-        border-bottom: 1px solid var(--light-gray);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border when at top */
       }
 
       .navbar.scrolled {
-        background-color: rgba(255, 255, 255, 0);
+        background-color: var(--white);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        border-bottom-color: transparent;
+        border-bottom: 1px solid var(--light-gray);
       }
 
       .nav-container {
@@ -125,10 +167,15 @@
       }
 
       .logo {
-        color: var(--dark-gray);
+        color: var(--white);
         font-size: 1.6rem;
         font-weight: bold;
         text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .navbar.scrolled .logo {
+        color: var(--dark-gray);
       }
 
       .navbar-right {
@@ -144,8 +191,13 @@
       .mobile-menu {
         display: none;
         font-size: 1.5rem;
-        color: black;
+        color: var(--white);
         cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .navbar.scrolled .mobile-menu {
+        color: var(--dark-gray);
       }
 
       .nav-links {
@@ -154,14 +206,24 @@
       }
 
       .nav-links a {
-        color: var(--dark-gray);
+        color: var(--white);
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
       }
 
+      .navbar.scrolled .nav-links a {
+        color: var(--dark-gray);
+      }
+
       .nav-links a:hover {
-        color: var(--primary-blue);
+        color: var(--primary-green);
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .navbar.scrolled .nav-links a:hover {
+        color: var(--primary-green);
       }
 
       /* Logo Styling */
@@ -181,22 +243,78 @@
 
         .nav-links {
           display: none;
-          position: absolute;
-          top: 100%;
+          position: fixed;
+          top: 70px;
           left: 0;
           width: 100%;
-          background-color: var(--primary-blue);
-          padding: 1rem;
+          background: linear-gradient(
+            to right,
+            var(--primary-green),
+            var(--primary-blue)
+          );
+          padding: 1rem 0;
           flex-direction: column;
           align-items: center;
+          gap: 1rem;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          z-index: 999;
+          transition: all 0.3s ease-in-out;
+        }
+
+        /* Hide mobile menu when navbar is scrolled */
+        .navbar.scrolled .nav-links {
+          display: none !important;
+        }
+
+        .navbar.scrolled .nav-links.active {
+          display: none !important;
         }
 
         .nav-links.active {
           display: flex;
+          animation: slideDown 0.3s ease-in-out;
         }
 
         .mobile-menu {
           display: block;
+          font-size: 1.8rem;
+          color: var(--white);
+          cursor: pointer;
+          transition: color 0.3s ease;
+          z-index: 1000;
+        }
+
+        /* Hide mobile menu button when scrolled */
+        .navbar.scrolled .mobile-menu {
+          display: none !important;
+        }
+
+        .nav-links a {
+          color: var(--white);
+          font-size: 1.2rem;
+          padding: 0.8rem 2rem;
+          width: 90%;
+          max-width: 300px;
+          text-align: center;
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          margin: 0.2rem 0;
+        }
+
+        .nav-links a:hover {
+          background: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         .site-logo {
@@ -213,24 +331,18 @@
 
       /* Contact page specific styles */
       #contact-content-section {
-        background-color: var(
-          --light-gray
-        ); /* Light gray background for main content area */
-        padding: 3rem 2rem 5rem 2rem; /* Padding around the content */
-        display: flex; /* Use flexbox to align children */
-        justify-content: space-between; /* Push children to opposite ends */
-        align-items: flex-start; /* Align items to the top */
-        max-width: 1200px; /* Max width of the content area */
-        margin: 0 auto; /* Center the content area */
+        background-color: var(--light-gray);
+        padding: 3rem 0 5rem 0;
+        width: 100%;
       }
 
       .contact-info-text {
-        text-align: left !important; /* Ensure text is aligned to the left */
-        padding-top: 0; /* Adjusted padding */
-        padding-bottom: 0; /* Removed bottom padding */
-        padding-left: 0; /* Remove left padding within the block */
-        width: 35%; /* Give info text a specific width */
-        max-width: 400px; /* Ensure it doesn't get too wide */
+        text-align: left !important;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        width: 35%;
+        max-width: 400px;
       }
 
       .contact-info-text .material-icons {
@@ -271,22 +383,32 @@
 
       .contact-form-card {
         background-color: var(--white);
-        padding: 2.5rem; /* Padding inside the form card */
+        padding: 2.5rem;
         border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        width: 60%; /* Give form card a specific width */
-        max-width: 700px; /* Ensure it doesn't get too wide */
-        margin: 0; /* Remove margins */
+        width: 60%;
+        max-width: 700px;
+        margin: 0;
       }
 
       .section-title {
-        text-align: left;
-        margin-bottom: 2rem; /* Adjusted margin */
-        color: var(--primary-green);
-        font-size: 1.8rem; /* Adjusted size */
-        border-left: 4px solid var(--primary-blue);
-        padding-left: 1rem; /* Adjusted padding */
-        letter-spacing: normal;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        margin-top: -1rem;
+        color: var(--dark-gray);
+        font-size: 2.8rem;
+        text-shadow: none;
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
+      }
+
+      .contact-content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
       }
 
       .contact-form {
@@ -358,165 +480,353 @@
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
       }
 
-      /* Responsive Adjustments */
+      /* Update responsive styles */
       @media (max-width: 900px) {
         #contact-content-section {
-          flex-direction: column; /* Stack sections on smaller screens */
-          align-items: center; /* Center items when stacked */
-          padding: 2rem 1rem 4rem 1rem; /* Adjust padding */
+          padding: 2rem 0 4rem 0;
+        }
+
+        .contact-content-wrapper {
+          flex-direction: column;
+          align-items: center;
+          padding: 0 1rem;
         }
 
         .contact-info-text,
         .contact-form-card {
-          width: 95%; /* Make sections nearly full width when stacked */
-          max-width: none; /* Remove max-width constraint */
-          margin: 1rem auto; /* Center and add vertical space */
-          padding: 1.5rem 1rem; /* Adjust padding */
+          width: 95%;
+          max-width: none;
+          margin: 1rem auto;
+          padding: 1.5rem 1rem;
         }
 
         .contact-info-text {
-          padding-bottom: 1.5rem; /* Add space below info text when stacked */
+          padding-bottom: 1.5rem;
         }
 
         .section-title {
-          font-size: 1.6rem; /* Adjust size */
-          text-align: center; /* Center title when stacked */
-          border-left: none; /* Remove left border when stacked */
-          padding-left: 0; /* Remove padding when stacked */
-        }
-
-        .contact-info-text .material-icons {
-          margin: 0 auto 1rem auto; /* Center icon when stacked */
+          font-size: 2.4rem;
+          margin-bottom: 2rem;
+          margin-top: -0.5rem;
         }
       }
 
       @media (max-width: 600px) {
         #contact-content-section {
-          padding: 1.5rem 0.8rem 3rem 0.8rem; /* Further adjust padding */
+          padding: 1.5rem 0 3rem 0;
         }
 
         .contact-info-text,
         .contact-form-card {
-          padding: 1rem 0.8rem; /* Further reduce padding */
-        }
-
-        .contact-info-text h2 {
-          font-size: 1.8rem;
-        }
-
-        .contact-info-text p {
-          font-size: 0.9rem;
+          padding: 1rem 0.8rem;
         }
 
         .section-title {
-          font-size: 1.4rem;
-          padding-left: 0; /* Ensure no left padding */
+          font-size: 2rem;
         }
       }
 
       /* Header Styles for Contact Page Hero */
       .hero {
         background: linear-gradient(
-          40deg,
-          hsl(152deg 93% 42%) 0%,
-          hsl(142deg 61% 61%) 9%,
-          hsl(139deg 60% 72%) 18%,
-          hsl(136deg 58% 82%) 27%,
-          hsl(135deg 55% 90%) 37%,
-          hsl(0deg 0% 99%) 47%,
-          hsl(190deg 86% 93%) 58%,
-          hsl(189deg 95% 87%) 68%,
-          hsl(189deg 98% 80%) 79%,
-          hsl(188deg 99% 71%) 89%,
-          hsl(186deg 100% 50%) 100%
+          to right,
+          var(--primary-green),
+          var(--primary-blue)
         );
-        background-size: cover;
-        background-position: center;
-        min-height: 40vh; /* Adjust height for contact page */
+        min-height: 40vh;
         display: flex;
         align-items: center;
         color: var(--white);
         padding: 4rem 2rem;
         position: relative;
-        text-align: center; /* Center text for a simpler contact hero */
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("Header.jpg") center/cover;
+        opacity: 0.7;
+        z-index: 1;
+        transform: scale(1.1); /* Prevent white edges on zoom */
       }
 
       .hero::after {
         content: "";
         position: absolute;
         top: 0;
+        left: 0;
         right: 0;
-        width: 40%;
-        height: 100%;
-        background: url("Header.jpg") center/cover; /* Changed image to Header.jpg */
-        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        opacity: 0.8;
-        z-index: 1;
+        bottom: 0;
+        background: linear-gradient(
+          to right,
+          rgba(0, 120, 71, 0.7),
+          rgba(30, 187, 240, 0.7)
+        );
+        z-index: 2;
       }
 
       .hero-container {
         max-width: 1200px;
         margin: 0 auto;
-        display: flex; /* Use flex for centering */
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 2;
         width: 100%;
+        text-align: left;
+        position: relative;
+        z-index: 3;
       }
 
       .hero-content {
-        text-align: center; /* Ensure content is centered */
-        background: rgba(0, 0, 0, 0.5); /* Keep a subtle overlay */
-        padding: 2rem;
-        border-radius: 8px;
-        max-width: 800px; /* Limit width for readability */
+        max-width: 600px;
       }
 
       .hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       }
 
-      .hero p.slogan {
-        font-size: 1.8rem; /* Match index.html slogan size */
+      .hero .slogan {
+        font-size: 1.8rem;
         font-weight: 700;
         text-transform: uppercase;
-        color: var(--primary-blue); /* Use primary blue for slogan */
+        color: var(--white);
         margin: 0.5rem 0 2rem 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         letter-spacing: 1px;
         line-height: 1.3;
       }
 
-      /* Responsive adjustments for Contact Hero */
+      .hero p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Responsive Design for Hero Section */
+      /* For large screens (above 1366px) */
+      @media (min-width: 1367px) {
+        .hero {
+          min-height: 45vh;
+          padding: 5rem 2rem;
+        }
+
+        .hero h1 {
+          font-size: 4rem;
+        }
+
+        .hero .slogan {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.4rem;
+        }
+      }
+
+      /* For laptops and smaller monitors (up to 1366px) */
+      @media (max-width: 1366px) {
+        .hero {
+          min-height: 40vh;
+          padding: 4rem 2rem;
+        }
+
+        .hero h1 {
+          font-size: 3.5rem;
+        }
+
+        .hero .slogan {
+          font-size: 1.8rem;
+        }
+
+        .hero p {
+          font-size: 1.2rem;
+        }
+      }
+
+      /* For tablets (up to 1024px) */
+      @media (max-width: 1024px) {
+        .hero {
+          min-height: 35vh;
+          padding: 3.5rem 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .hero .slogan {
+          font-size: 1.6rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .hero::before {
+          opacity: 0.65;
+        }
+
+        .hero::after {
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.75),
+            rgba(30, 187, 240, 0.75)
+          );
+        }
+      }
+
+      /* For tablets in portrait mode (up to 768px) */
       @media (max-width: 768px) {
         .hero {
-          min-height: 30vh;
+          min-height: 40vh;
           padding: 3rem 1rem;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url("Header.jpg") center/cover;
+          opacity: 0.6;
+          z-index: 1;
+          transform: scale(1.1);
+          background-attachment: scroll; /* Prevent parallax on mobile */
+        }
+
+        .hero::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.8),
+            rgba(30, 187, 240, 0.8)
+          );
+          z-index: 2;
+        }
+
+        .hero-container {
+          position: relative;
+          z-index: 3;
+          width: 100%;
+          padding: 0 1rem;
+        }
+
+        .hero-content {
+          max-width: 100%;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          margin-bottom: 0.8rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .slogan {
+          font-size: 1.4rem;
+          margin: 0.4rem 0 1.5rem 0;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+          margin-bottom: 1.5rem;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      /* For mobile phones (up to 480px) */
+      @media (max-width: 480px) {
+        .hero {
+          min-height: 45vh;
+          padding: 2.5rem 1rem;
+        }
+
+        .hero::before {
+          opacity: 0.5;
+          transform: scale(1.1);
+          background-attachment: scroll;
+        }
+
+        .hero::after {
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.85),
+            rgba(30, 187, 240, 0.85)
+          );
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero .slogan {
+          font-size: 1.2rem;
+          margin: 0.3rem 0 1.2rem 0;
+        }
+
+        .hero p {
+          font-size: 1rem;
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      /* For very small screens */
+      @media (max-width: 320px) {
+        .hero {
+          min-height: 40vh;
+          padding: 2rem 0.8rem;
         }
 
         .hero h1 {
           font-size: 2rem;
         }
 
-        .hero p.slogan {
-          font-size: 1.4rem;
+        .hero .slogan {
+          font-size: 1.1rem;
+          margin: 0.3rem 0 1rem 0;
         }
 
-        .hero-content {
-          padding: 1.5rem;
+        .hero p {
+          font-size: 0.95rem;
+          margin-bottom: 1rem;
         }
       }
 
-      @media (max-width: 480px) {
-        .hero h1 {
-          font-size: 1.8rem;
+      /* Fix for landscape orientation on mobile */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero {
+          min-height: 100vh;
+          padding: 2rem 1rem;
         }
 
-        .hero p.slogan {
-          font-size: 1.2rem;
+        .hero::before {
+          opacity: 0.7;
+          transform: scale(1.1);
+          background-attachment: scroll;
+        }
+
+        .hero::after {
+          background: linear-gradient(
+            to right,
+            rgba(0, 120, 71, 0.7),
+            rgba(30, 187, 240, 0.7)
+          );
         }
       }
 
@@ -541,8 +851,8 @@
 
       /* Ensure proper display on high-DPI screens */
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        .hero::after {
-          background-image: url("Header.jpg"); /* Changed image to Header.jpg for high-DPI */
+        .hero::before {
+          background-image: url("Header.jpg");
         }
       }
 
@@ -579,9 +889,62 @@
         color: var(--primary-blue);
         transform: scale(1.1); /* Slightly scale up on hover */
       }
+
+      /* Add scroll to top button styles */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-green);
+        color: var(--white);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .scroll-to-top.visible {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      .scroll-to-top:not(.clicked):hover {
+        background-color: var(--primary-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .scroll-to-top.clicked {
+        background-color: var(--primary-green) !important;
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- Add scroll to top button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+      <span class="material-icons">arrow_upward</span>
+    </button>
+
     <nav class="navbar">
       <div class="nav-container">
         <div class="navbar-left">
@@ -611,72 +974,73 @@
       </div>
     </nav>
 
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" aria-label="Contact page hero">
       <div class="hero-container">
         <div class="hero-content">
-          <h1>Contact Us</h1>
-          <p class="slogan">Lets make a difference togther!</p>
-          <!-- You can add other content here if needed -->
+          <h1>SLIRES</h1>
+          <p class="slogan">Uniting Minds. Rebuilding a Nation.</p>
+          <p>
+            Empowering Sierra Leone through advocacy, education, and community
+            engagement. Together, we build a stronger, more inclusive future for
+            all.
+          </p>
         </div>
-        <!-- You can optionally add a mission/image div here if it fits the contact page design -->
-        <!--
-        <div class="mission">
-          "To promote social justice, ensure representation, and foster
-          development through advocacy, education, and community engagement. We
-          believe in the power of unity and collective action to create lasting
-          change in Sierra Leone."
-          <span class="mission-attribution">- Our Mission</span>
-        </div>
-        -->
       </div>
     </section>
 
-    <div id="contact-content-section">
-      <div class="contact-info-text">
-        <span class="material-icons">mail_outline</span>
-        <h2>Let's Connect</h2>
-        <p>
-          Have a question, want to get involved, or just want to say hello?<br />
-          Fill out the form and we'll get back to you soon!
-        </p>
-        <a href="mailto:shaikhadeer440@gmail.com">shaikhadeer440@gmail.com</a>
-      </div>
-      <div class="contact-form-card">
-        <div class="section-title">Contact Us</div>
-        <form
-          class="contact-form"
-          action="https://formsubmit.co/khadeershaik0308@gmail.com"
-          method="POST"
-        >
-          <!-- Honeypot to prevent spam -->
-          <input type="text" name="_honey" style="display: none" />
-          <!-- Disable Captcha -->
-          <input type="hidden" name="_captcha" value="false" />
-          <!-- Specify redirect after submission -->
-          <input type="hidden" name="_next" value="/thanks.html" />
-          <!-- Specify template -->
-          <input type="hidden" name="_template" value="table" />
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
+    <div id="contact-content-section" aria-label="Contact form section">
+      <div class="contact-content-wrapper">
+        <div class="contact-info-text">
+          <span class="material-icons">mail_outline</span>
+          <h2>Let's Connect</h2>
+          <p>
+            Have a question, want to get involved, or just want to say hello?<br />
+            Fill out the form and we'll get back to you soon!
+          </p>
+          <a href="mailto:shaikhadeer440@gmail.com">shaikhadeer440@gmail.com</a>
+        </div>
+        <div class="contact-form-card">
+          <h2 class="section-title">Contact Us</h2>
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/khadeershaik0308@gmail.com"
+            method="POST"
+          >
+            <!-- Honeypot to prevent spam -->
+            <input type="text" name="_honey" style="display: none" />
+            <!-- Disable Captcha -->
+            <input type="hidden" name="_captcha" value="false" />
+            <!-- Specify redirect after submission -->
+            <input type="hidden" name="_next" value="/thanks.html" />
+            <!-- Specify template -->
+            <input type="hidden" name="_template" value="table" />
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
       </div>
     </div>
-    <footer>
+    <footer role="contentinfo">
       <div class="social-links">
         <a href="#" aria-label="Instagram"
           ><img
@@ -712,19 +1076,30 @@
       // Mobile menu toggle
       const mobileMenu = document.querySelector(".mobile-menu");
       const navLinks = document.querySelector(".nav-links");
+      const navbar = document.querySelector(".navbar");
 
+      // Only allow mobile menu toggle when navbar is not scrolled
       mobileMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+        if (!navbar.classList.contains("scrolled")) {
+          navLinks.classList.toggle("active");
+        }
       });
 
       // Add scrolled class to navbar on scroll
       window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
         if (window.scrollY > 50) {
-          // Add scrolled class after scrolling 50px down
           navbar.classList.add("scrolled");
+          // Close mobile menu if open when scrolling
+          navLinks.classList.remove("active");
         } else {
           navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("active");
         }
       });
 
@@ -791,6 +1166,32 @@
             });
         });
       }
+    </script>
+
+    <script>
+      // Add scroll to top functionality
+      const scrollToTopButton = document.querySelector(".scroll-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          scrollToTopButton.classList.add("visible");
+        } else {
+          scrollToTopButton.classList.remove("visible");
+        }
+      });
+
+      scrollToTopButton.addEventListener("click", () => {
+        scrollToTopButton.classList.add("clicked");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Only remove clicked class when explicitly hovered
+      scrollToTopButton.addEventListener("mouseenter", () => {
+        scrollToTopButton.classList.remove("clicked");
+      });
     </script>
   </body>
 </html>
