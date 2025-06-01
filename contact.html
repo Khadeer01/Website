@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --primary-green: #007847;
@@ -23,11 +27,54 @@
         box-sizing: border-box;
       }
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
         line-height: 1.6;
         color: var(--dark-gray);
         background: linear-gradient(120deg, #e0f7fa 0%, #f5f5f5 100%);
         min-height: 100vh;
+      }
+
+      /* Update heading styles to use Montserrat */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
+      }
+
+      .logo {
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
+        color: var(--dark-gray);
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .section-title {
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-green);
+        text-shadow: 0 0 5px rgba(0, 120, 71, 0.4);
+      }
+
+      .slogan {
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--primary-blue);
+        margin: 0.5rem 0 2rem 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1px;
+        line-height: 1.3;
       }
 
       /* Navigation Styles */
@@ -165,163 +212,205 @@
       }
 
       /* Contact page specific styles */
-      .contact-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 2rem;
-        max-width: 900px;
-        margin: 12rem auto 0 auto;
-        padding: 2rem 1rem 0 1rem;
+      #contact-content-section {
+        background-color: var(
+          --light-gray
+        ); /* Light gray background for main content area */
+        padding: 3rem 2rem 5rem 2rem; /* Padding around the content */
+        display: flex; /* Use flexbox to align children */
+        justify-content: space-between; /* Push children to opposite ends */
+        align-items: flex-start; /* Align items to the top */
+        max-width: 1200px; /* Max width of the content area */
+        margin: 0 auto; /* Center the content area */
       }
-      .contact-info {
-        background: var(--primary-green);
-        color: var(--white);
-        border-radius: 16px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        padding: 2.5rem 2rem;
-        flex: 1 1 250px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-width: 220px;
-        max-width: 320px;
+
+      .contact-info-text {
+        text-align: left !important; /* Ensure text is aligned to the left */
+        padding-top: 0; /* Adjusted padding */
+        padding-bottom: 0; /* Removed bottom padding */
+        padding-left: 0; /* Remove left padding within the block */
+        width: 35%; /* Give info text a specific width */
+        max-width: 400px; /* Ensure it doesn't get too wide */
       }
-      .contact-info .material-icons {
-        font-size: 3rem;
+
+      .contact-info-text .material-icons {
+        font-size: 3.5rem; /* Larger icon */
         margin-bottom: 1rem;
-        color: var(--accent);
+        color: var(--primary-green); /* Primary green color for icon */
+        display: block;
+        margin-left: 0; /* Ensure left alignment */
       }
-      .contact-info h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: var(--accent);
-        letter-spacing: 1px;
+
+      .contact-info-text h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+        color: var(--dark-gray);
       }
-      .contact-info p {
+
+      .contact-info-text p {
         font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        color: var(--dark-gray);
+      }
+
+      .contact-info-text p:last-of-type {
         margin-bottom: 1.5rem;
-        text-align: center;
       }
-      .contact-info a {
-        color: var(--accent);
+
+      .contact-info-text a {
+        color: var(--primary-green);
         text-decoration: underline;
-        font-size: 1rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
       }
-      .contact-card {
-        background: var(--white);
-        border-radius: 16px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-        padding: 2.5rem 2rem;
-        flex: 2 1 400px;
-        max-width: 500px;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+
+      .contact-info-text a:hover {
+        color: var(--primary-blue);
       }
+
+      .contact-form-card {
+        background-color: var(--white);
+        padding: 2.5rem; /* Padding inside the form card */
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 60%; /* Give form card a specific width */
+        max-width: 700px; /* Ensure it doesn't get too wide */
+        margin: 0; /* Remove margins */
+      }
+
       .section-title {
         text-align: left;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem; /* Adjusted margin */
         color: var(--primary-green);
-        font-size: 2rem;
-        border-left: 6px solid var(--primary-blue);
-        padding-left: 1rem;
-        letter-spacing: 1px;
+        font-size: 1.8rem; /* Adjusted size */
+        border-left: 4px solid var(--primary-blue);
+        padding-left: 1rem; /* Adjusted padding */
+        letter-spacing: normal;
       }
+
       .contact-form {
         width: 100%;
       }
+
       .form-group {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem; /* More space between form groups */
       }
+
       .form-group label {
         display: block;
-        margin-bottom: 0.3rem;
-        color: var(--dark-gray);
+        margin-bottom: 0.5rem;
+        color: var(--dark-gray); /* Dark gray label */
         font-size: 0.95rem;
+        font-weight: 500; /* Make labels a bit bolder */
       }
+
       .form-group input,
       .form-group textarea {
         width: 100%;
-        padding: 0.7rem;
-        border: 1px solid #cce3e8;
+        padding: 0.8rem; /* Adjusted padding */
+        border: 1px solid #ccc; /* Lighter border */
         border-radius: 5px;
         font-size: 1rem;
-        background: #f8fcfc;
-        transition: border 0.2s;
+        background: var(--white); /* White background */
+        color: var(--dark-gray); /* Dark gray text */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
       }
       .form-group input:focus,
       .form-group textarea:focus {
-        border: 1.5px solid var(--primary-blue);
+        border-color: var(--primary-blue); /* Blue border on focus */
         outline: none;
-        background: #fff;
+        box-shadow: 0 0 8px rgba(30, 187, 240, 0.3); /* Pronounced blue shadow */
+        background: var(--white); /* Keep background white on focus */
       }
       .form-group textarea {
-        min-height: 100px;
+        min-height: 120px; /* Slightly taller textarea */
+        resize: vertical; /* Allow vertical resizing */
       }
       .btn {
-        display: inline-block;
-        padding: 0.7rem 2rem;
+        display: block; /* Make button a block element */
+        width: 100%; /* Full width button */
+        padding: 1rem; /* Adjusted padding */
+        font-size: 1.1rem; /* Adjusted font size */
+        /* Gradient from Green to Blue */
         background: linear-gradient(
-          90deg,
+          to right,
           var(--primary-green),
           var(--primary-blue)
         );
-        color: var(--white);
+        color: var(--white); /* White text */
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        transition: background 0.3s, box-shadow 0.3s;
+        transition: opacity 0.3s ease; /* Use opacity for hover effect */
         text-decoration: none;
-        font-size: 1rem;
         font-weight: 600;
-        box-shadow: 0 2px 8px rgba(30, 187, 240, 0.08);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+        margin-top: 2rem; /* Space above button */
       }
       .btn:hover {
+        opacity: 0.9; /* Subtle opacity change on hover */
         background: linear-gradient(
-          90deg,
-          var(--primary-blue),
-          var(--primary-green)
-        );
-        box-shadow: 0 4px 16px rgba(30, 187, 240, 0.15);
+          to right,
+          var(--primary-green),
+          var(--primary-blue)
+        ); /* Keep the gradient consistent */
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
       }
-      footer {
-        background-color: var(--primary-green);
-        color: var(--white);
-        padding: 3rem 2rem;
-        text-align: center;
-        margin-top: 4rem;
-      }
-      /* Media Queries for Contact page specific styles */
+
+      /* Responsive Adjustments */
       @media (max-width: 900px) {
-        .contact-wrapper {
-          flex-direction: column;
-          align-items: stretch;
-          gap: 2rem;
+        #contact-content-section {
+          flex-direction: column; /* Stack sections on smaller screens */
+          align-items: center; /* Center items when stacked */
+          padding: 2rem 1rem 4rem 1rem; /* Adjust padding */
         }
-        .contact-info,
-        .contact-card {
-          max-width: 100%;
+
+        .contact-info-text,
+        .contact-form-card {
+          width: 95%; /* Make sections nearly full width when stacked */
+          max-width: none; /* Remove max-width constraint */
+          margin: 1rem auto; /* Center and add vertical space */
+          padding: 1.5rem 1rem; /* Adjust padding */
         }
-      }
-      @media (max-width: 768px) {
-        .contact-wrapper {
-          margin-top: 10rem;
+
+        .contact-info-text {
+          padding-bottom: 1.5rem; /* Add space below info text when stacked */
         }
-      }
-      @media (max-width: 600px) {
-        .contact-wrapper {
-          padding: 1rem 0 0 0;
-        }
-        .contact-info,
-        .contact-card {
-          padding: 1.5rem 0.7rem;
-        }
+
         .section-title {
-          font-size: 1.3rem;
-          padding-left: 0.5rem;
+          font-size: 1.6rem; /* Adjust size */
+          text-align: center; /* Center title when stacked */
+          border-left: none; /* Remove left border when stacked */
+          padding-left: 0; /* Remove padding when stacked */
+        }
+
+        .contact-info-text .material-icons {
+          margin: 0 auto 1rem auto; /* Center icon when stacked */
+        }
+      }
+
+      @media (max-width: 600px) {
+        #contact-content-section {
+          padding: 1.5rem 0.8rem 3rem 0.8rem; /* Further adjust padding */
+        }
+
+        .contact-info-text,
+        .contact-form-card {
+          padding: 1rem 0.8rem; /* Further reduce padding */
+        }
+
+        .contact-info-text h2 {
+          font-size: 1.8rem;
+        }
+
+        .contact-info-text p {
+          font-size: 0.9rem;
+        }
+
+        .section-title {
+          font-size: 1.4rem;
+          padding-left: 0; /* Ensure no left padding */
         }
       }
 
@@ -350,6 +439,19 @@
         padding: 4rem 2rem;
         position: relative;
         text-align: center; /* Center text for a simpler contact hero */
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background: url("Header.jpg") center/cover; /* Changed image to Header.jpg */
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        opacity: 0.8;
+        z-index: 1;
       }
 
       .hero-container {
@@ -431,6 +533,52 @@
           box-shadow: 0 4px 16px rgba(30, 187, 240, 0.15);
         }
       }
+
+      /* Print styles */
+      @media print {
+        /* Add any print-specific styles here */
+      }
+
+      /* Ensure proper display on high-DPI screens */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .hero::after {
+          background-image: url("Header.jpg"); /* Changed image to Header.jpg for high-DPI */
+        }
+      }
+
+      /* Add Material Icons styling - kept here as it was in original index.html */
+      .material-icons {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      /* Footer Styles from index.html */
+      footer {
+        background-color: var(--primary-green);
+        color: var(--white);
+        padding: 3rem 2rem;
+        text-align: center;
+        margin-top: 4rem; /* Keep some space above the footer */
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .social-links a {
+        color: var(--white);
+        font-size: 2rem; /* Increased font size for Material Icons */
+        transition: color 0.3s ease, transform 0.3s ease; /* Added transform to transition */
+      }
+
+      .social-links a:hover {
+        color: var(--primary-blue);
+        transform: scale(1.1); /* Slightly scale up on hover */
+      }
     </style>
   </head>
   <body>
@@ -438,8 +586,13 @@
       <div class="nav-container">
         <div class="navbar-left">
           <div class="logo-container">
-            <img src="logo2.png" alt="SLIRES Logo" class="site-logo" />
-            <a href="index.html" class="logo">SLIRES</a>
+            <a href="index.html" class="logo"
+              ><img
+                src="logo2.png"
+                alt="SLIRES Logo"
+                class="site-logo"
+              />SLIRES</a
+            >
           </div>
         </div>
         <div class="navbar-right">
@@ -478,8 +631,8 @@
       </div>
     </section>
 
-    <div class="contact-wrapper">
-      <div class="contact-info">
+    <div id="contact-content-section">
+      <div class="contact-info-text">
         <span class="material-icons">mail_outline</span>
         <h2>Let's Connect</h2>
         <p>
@@ -488,7 +641,7 @@
         </p>
         <a href="mailto:shaikhadeer440@gmail.com">shaikhadeer440@gmail.com</a>
       </div>
-      <div class="contact-card">
+      <div class="contact-form-card">
         <div class="section-title">Contact Us</div>
         <form
           class="contact-form"
@@ -525,10 +678,24 @@
     </div>
     <footer>
       <div class="social-links">
-        <a href="#"><span class="material-icons">facebook</span></a>
-        <a href="#"><span class="material-icons">twitter</span></a>
-        <a href="#"><span class="material-icons">mail</span></a>
-        <a href="#"><span class="material-icons">link</span></a>
+        <a href="#" aria-label="Instagram"
+          ><img
+            src="insta.png"
+            alt="Instagram icon"
+            style="height: 2rem; vertical-align: middle"
+        /></a>
+        <a href="#" aria-label="Twitter"
+          ><img
+            src="x2.png"
+            alt="X (formerly Twitter) icon"
+            style="height: 2rem; vertical-align: middle"
+        /></a>
+        <a href="mailto:shaikhadeer440@gmail.com" aria-label="Email"
+          ><img
+            src="mail.png"
+            alt="Email icon"
+            style="height: 2rem; vertical-align: middle"
+        /></a>
       </div>
       <p>
         Email:
@@ -536,7 +703,9 @@
           >shaikhadeer440@gmail.com</a
         >
       </p>
-      <p style="margin-top: 1rem">&copy; 2024 SLIRES. All rights reserved.</p>
+      <p style="margin-top: 1rem">
+        &copy; <span id="current-year"></span> SLIRES. All rights reserved.
+      </p>
     </footer>
 
     <script>
@@ -581,6 +750,12 @@
           }
         });
       });
+
+      // Automatically update copyright year
+      const currentYearSpan = document.getElementById("current-year");
+      if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+      }
     </script>
 
     <script>
