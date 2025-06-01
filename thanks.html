@@ -8,6 +8,11 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <!-- Added Montserrat and Open Sans Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --primary-green: #007847;
@@ -19,7 +24,9 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* Set Open Sans as primary font for body */
+        font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
         line-height: 1.6;
         color: var(--dark-gray);
         background: linear-gradient(
@@ -34,6 +41,17 @@
         min-height: 100vh;
         text-align: center;
         padding: 40px 20px;
+      }
+
+      /* Set Montserrat as primary font for headings */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
       }
 
       .container {
@@ -52,18 +70,26 @@
       }
 
       h1 {
+        /* Set Montserrat for h1 */
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 800;
         color: var(--primary-green); /* Primary green */
         margin-bottom: 15px;
         font-size: 2em;
       }
 
       p {
+        /* Set Open Sans for paragraphs */
+        font-family: "Open Sans", sans-serif;
         color: var(--dark-gray);
         font-size: 1.1em;
         margin-bottom: 30px;
       }
 
       .btn {
+        /* Set Montserrat for buttons */
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 700;
         display: inline-block;
         padding: 12px 25px;
         background: linear-gradient(
@@ -76,7 +102,6 @@
         border-radius: 5px;
         transition: background 0.3s ease, box-shadow 0.3s ease;
         font-size: 1em;
-        font-weight: 600;
         box-shadow: 0 2px 8px rgba(30, 187, 240, 0.08);
       }
 
@@ -88,6 +113,39 @@
         ); /* Hover effect */
         box-shadow: 0 4px 16px rgba(30, 187, 240, 0.15);
       }
+
+      /* Footer Styles */
+      footer {
+        background-color: var(--primary-green);
+        color: var(--white);
+        padding: 3rem 2rem;
+        text-align: center;
+        margin-top: auto; /* Push footer to bottom */
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .social-links a {
+        color: var(--white);
+        font-size: 2rem; /* Increased font size for Material Icons */
+        transition: color 0.3s ease, transform 0.3s ease; /* Added transform to transition */
+      }
+
+      .social-links a:hover {
+        color: var(--primary-blue);
+        transform: scale(1.1); /* Slightly scale up on hover */
+      }
+
+      /* Adjust img height for social icons */
+      .social-links img {
+        height: 2rem; /* Increased height for image icon */
+        vertical-align: middle;
+      }
     </style>
   </head>
   <body>
@@ -98,5 +156,48 @@
       <p>Your message has been sent successfully.</p>
       <a href="index.html" class="btn">Go to Home Page</a>
     </div>
+    <!-- Re-added footer -->
+    <footer>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"
+          ><img
+            src="insta.png"
+            alt="Instagram icon"
+            style="height: 2rem; vertical-align: middle"
+        /></a>
+        <!-- Using insta.png for Instagram -->
+        <a href="#" aria-label="Twitter"
+          ><img
+            src="x2.png"
+            alt="X (formerly Twitter) icon"
+            style="height: 2rem; vertical-align: middle"
+        /></a>
+        <!-- Increased height for image -->
+        <a href="mailto:shaikhadeer440@gmail.com" aria-label="Email"
+          ><img
+            src="mail.png"
+            alt="Email icon"
+            style="height: 2rem; vertical-align: middle"
+        /></a>
+        <!-- Using mail.png for Email -->
+      </div>
+      <p>
+        Email:
+        <a href="mailto:shaikhadeer440@gmail.com" style="color: var(--white)"
+          >shaikhadeer440@gmail.com</a
+        >
+      </p>
+      <p style="margin-top: 1rem">
+        &copy; <span id="current-year"></span> SLIRES. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      // Automatically update copyright year
+      const currentYearSpan = document.getElementById("current-year");
+      if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+      }
+    </script>
   </body>
 </html>
