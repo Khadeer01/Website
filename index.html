@@ -1736,7 +1736,7 @@
             <i class="material-icons">menu</i>
           </div>
           <div class="nav-links">
-            <a href="#hero">Mission</a>
+            <a href="#mission">Mission</a>
             <a href="#about">About</a>
             <a href="#support">Get Involved</a>
             <a href="contact.html">Contact</a>
@@ -2143,7 +2143,8 @@
           if (target) {
             const targetPosition =
               target.getBoundingClientRect().top + window.pageYOffset; // Get target position from top of document
-            const offsetPosition = targetPosition - navbarHeight; // Subtract navbar height
+            // For mission section, scroll to show the entire section
+            const offsetPosition = targetPosition - navbarHeight - 20; // Add small offset for better visibility
 
             window.scrollTo({
               top: offsetPosition,
