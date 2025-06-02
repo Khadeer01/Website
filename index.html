@@ -498,28 +498,35 @@
       }
 
       /* About section specific card styles */
-      #about .card {
-        cursor: pointer;
-        align-items: flex-start;
-      }
-
       #about .card::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border: 2px solid var(--primary-blue);
-        border-radius: 10px;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(
+          to right,
+          var(--primary-green),
+          var(--primary-blue)
+        );
+        border-radius: 12px;
         opacity: 0;
         transition: opacity 0.3s ease;
         pointer-events: none;
+        z-index: -1;
+      }
+
+      #about .card {
+        cursor: pointer;
+        align-items: flex-start;
+        background: var(--white);
+        position: relative;
+        z-index: 1;
       }
 
       #about .card:hover {
         transform: translateY(-5px);
-        border-color: var(--primary-blue);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
 
