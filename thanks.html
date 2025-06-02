@@ -36,11 +36,10 @@
         ); /* Consistent with contact page */
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         min-height: 100vh;
         text-align: center;
-        padding: 40px 20px;
+        margin: 0;
+        padding: 0;
       }
 
       /* Set Montserrat as primary font for headings */
@@ -61,6 +60,8 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         max-width: 500px;
         width: 100%;
+        margin: 40px auto;
+        flex: 1;
       }
 
       .material-icons {
@@ -120,7 +121,13 @@
         color: var(--white);
         padding: 3rem 2rem;
         text-align: center;
-        margin-top: auto; /* Push footer to bottom */
+        margin-top: auto;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
       }
 
       .social-links {
@@ -132,19 +139,56 @@
 
       .social-links a {
         color: var(--white);
-        font-size: 2rem; /* Increased font size for Material Icons */
-        transition: color 0.3s ease, transform 0.3s ease; /* Added transform to transition */
+        font-size: 2rem;
+        transition: color 0.3s ease, transform 0.3s ease;
       }
 
       .social-links a:hover {
         color: var(--primary-blue);
-        transform: scale(1.1); /* Slightly scale up on hover */
+        transform: scale(1.1);
       }
 
-      /* Adjust img height for social icons */
       .social-links img {
-        height: 2rem; /* Increased height for image icon */
+        height: 2rem;
         vertical-align: middle;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          margin: 20px auto;
+          padding: 30px 20px;
+        }
+
+        footer {
+          padding: 2rem 1rem;
+        }
+
+        .social-links {
+          gap: 1rem;
+        }
+
+        .social-links img {
+          height: 1.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          margin: 15px auto;
+          padding: 25px 15px;
+        }
+
+        footer {
+          padding: 1.5rem 1rem;
+        }
+
+        .social-links {
+          gap: 0.8rem;
+        }
+
+        .social-links img {
+          height: 1.6rem;
+        }
       }
     </style>
   </head>
@@ -156,8 +200,7 @@
       <p>Your message has been sent successfully.</p>
       <a href="index.html" class="btn">Go to Home Page</a>
     </div>
-    <!-- Re-added footer -->
-    <footer>
+    <footer role="contentinfo">
       <div class="social-links">
         <a href="#" aria-label="Instagram"
           ><img
@@ -165,21 +208,18 @@
             alt="Instagram icon"
             style="height: 2rem; vertical-align: middle"
         /></a>
-        <!-- Using insta.png for Instagram -->
         <a href="#" aria-label="Twitter"
           ><img
             src="x2.png"
             alt="X (formerly Twitter) icon"
             style="height: 2rem; vertical-align: middle"
         /></a>
-        <!-- Increased height for image -->
         <a href="mailto:shaikhadeer440@gmail.com" aria-label="Email"
           ><img
             src="mail.png"
             alt="Email icon"
             style="height: 2rem; vertical-align: middle"
         /></a>
-        <!-- Using mail.png for Email -->
       </div>
       <p>
         Email:
