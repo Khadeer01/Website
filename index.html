@@ -435,6 +435,24 @@
         margin-top: 0;
       }
 
+      /* Add specific margin for about section */
+      #about.full-width-section {
+        margin-top: 4rem;
+      }
+
+      /* Update responsive styles for the gap */
+      @media (max-width: 768px) {
+        #about.full-width-section {
+          margin-top: 3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #about.full-width-section {
+          margin-top: 2rem;
+        }
+      }
+
       .full-width-section .section-content {
         max-width: 1200px;
         margin: 0 auto;
@@ -1319,6 +1337,73 @@
           gap: 1rem;
         }
       }
+
+      /* Mission Section Styles */
+      .mission-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .mission-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--dark-gray);
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
+
+      .mission-text:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Responsive styles for mission section */
+      @media (max-width: 1024px) {
+        .mission-content {
+          max-width: 800px;
+          padding: 0 1.5rem;
+        }
+
+        .mission-text {
+          font-size: 1.15rem;
+          line-height: 1.7;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mission-content {
+          max-width: 100%;
+          padding: 0 1.2rem;
+        }
+
+        .mission-text {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .mission-content {
+          padding: 0 1rem;
+        }
+
+        .mission-text {
+          font-size: 1rem;
+          line-height: 1.5;
+          margin-bottom: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+          margin-bottom: 1.5rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1359,15 +1444,37 @@
         <div class="hero-container">
           <div class="hero-content">
             <h1>SLIRES</h1>
-            <p class="slogan">Uniting Minds. Rebuilding a nation.</p>
+            <p class="slogan">Uniting Minds. Rebuilding a Nation.</p>
             <a href="#support" class="btn">Get Involved</a>
           </div>
-          <div class="mission">
-            "To promote social justice, ensure representation, and foster
-            development through advocacy, education, and community engagement.
-            We believe in the power of unity and collective action to create
-            lasting change in Sierra Leone."
-            <span class="mission-attribution">- Our Mission</span>
+        </div>
+      </section>
+
+      <section id="mission" class="full-width-section" aria-label="Our Mission">
+        <div class="section-content">
+          <h2 class="section-title">
+            Our Mission: Mobilising the Power of All Sierra Leoneans
+          </h2>
+          <div class="mission-content">
+            <p class="mission-text">
+              SLIRES exists to turn vision into velocity. Our mission is to
+              unite Sierra Leoneans wherever they are and give them the tools,
+              platforms, and pathways to build the future they deserve.
+            </p>
+            <p class="mission-text">
+              Through digital innovation, we break the barriers of geography.
+              Through civic education, we awaken agency and accountability.
+              Through AI, we scale solutions. Through grassroots engagement, we
+              restore dignity to rural voices. Through diaspora networks, we
+              reinvest our collective genius into national service.
+            </p>
+            <p class="mission-text">
+              We are building systems that outlast leaders, platforms that
+              outgrow movements, and a culture that outshines pessimism. Our
+              mission is not just to reform. It is to rebuild, to empower, and
+              to ensure sustainability that is rooted in community, integrity,
+              and courage.
+            </p>
           </div>
         </div>
       </section>
