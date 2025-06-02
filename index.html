@@ -183,11 +183,20 @@
         margin: 0 auto;
         margin-bottom: 2rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 2rem;
         align-items: center;
         position: relative;
         z-index: 3;
+      }
+
+      .hero-divider {
+        width: 2px;
+        height: 80%;
+        background: var(--white);
+        opacity: 0.7;
+        margin: 0 1rem;
+        align-self: center;
       }
 
       .hero-content {
@@ -261,8 +270,12 @@
       @media (max-width: 768px) {
         .hero-container {
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: 1rem;
           text-align: center;
+        }
+
+        .hero-divider {
+          display: none;
         }
 
         .hero-content {
@@ -1636,6 +1649,59 @@
           font-size: 1.4rem;
         }
       }
+
+      /* Update styles for the hero mission text */
+      .hero-mission {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1rem 0 2rem 0;
+        margin-top: -1rem;
+      }
+
+      .hero-mission .mission-text {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        text-align: left;
+        color: var(--white);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        font-weight: 600;
+        max-width: 600px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .hero-divider {
+          display: none;
+        }
+
+        .hero-mission {
+          padding: 0.5rem 1rem 1.5rem 0;
+          margin-top: -0.5rem;
+          justify-content: center;
+        }
+
+        .hero-mission .mission-text {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-mission {
+          padding: 0.3rem 0.8rem 1.2rem 0;
+          margin-top: -0.3rem;
+        }
+
+        .hero-mission .mission-text {
+          font-size: 1.3rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1678,6 +1744,13 @@
             <h1>SLIRES</h1>
             <p class="slogan">Uniting Minds. Rebuilding a Nation.</p>
             <a href="#support" class="btn">Get Involved</a>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-mission">
+            <p class="mission-text">
+              Sierra Leone Initiative for Rebuilding, Empowerment &
+              Sustainability
+            </p>
           </div>
         </div>
       </section>
@@ -1965,24 +2038,31 @@
 
     <footer role="contentinfo">
       <div class="social-links">
-        <a href="#" aria-label="Instagram"
-          ><img
+        <a href="#" aria-label="Instagram">
+          <img
             src="insta.png"
             alt="Instagram icon"
             style="height: 2rem; vertical-align: middle"
-        /></a>
-        <a href="#" aria-label="Twitter"
-          ><img
+          />
+        </a>
+        <a
+          href="https://x.com/SLIRES_"
+          target="_blank"
+          aria-label="X (formerly Twitter)"
+        >
+          <img
             src="x2.png"
             alt="X (formerly Twitter) icon"
             style="height: 2rem; vertical-align: middle"
-        /></a>
-        <a href="mailto:mansoursesay@slires-thecall.org" aria-label="Email"
-          ><img
+          />
+        </a>
+        <a href="mailto:mansoursesay@slires-thecall.org" aria-label="Email">
+          <img
             src="mail.png"
             alt="Email icon"
             style="height: 2rem; vertical-align: middle"
-        /></a>
+          />
+        </a>
       </div>
       <p>
         Email:
